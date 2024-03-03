@@ -32,8 +32,8 @@ class BinaryTreeTraverse {
     fun maxDeep(root:TreeNode?){
         if(root == null) return
         depth ++
-        if(root?.left == null && root?.right == null) {
-            res = Math.max(res,depth)
+        if(root.left == null && root?.right == null) {
+            res = res.coerceAtLeast(depth)
         }
         maxDeep(root.left)
         maxDeep(root.right)
@@ -46,7 +46,7 @@ class BinaryTreeTraverse {
 }
 
 
-/*class diameterOfBinatryTree{
+/*class diameterOfBinaryTree{
     var maxDiameter = 0
     fun startPoint(root:TreeNode):Int{
         calculateDiameter(root)
