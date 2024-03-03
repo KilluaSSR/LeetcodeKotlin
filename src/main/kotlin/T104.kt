@@ -1,5 +1,7 @@
 package old01
 
+import TreeNode
+
 /**
  * Example:
  * var ti = TreeNode(5)

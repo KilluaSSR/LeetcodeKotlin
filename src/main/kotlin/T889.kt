@@ -1,5 +1,8 @@
 package old01
 
+import TreeNode
+import java.util.Scanner
+
 class SolutionT889 {
     private val hashMap : HashMap<Int,Int> = HashMap()
     fun constructFromPrePost(preorder: IntArray, postorder: IntArray): TreeNode? {
@@ -7,6 +10,7 @@ class SolutionT889 {
         for(items in postorder.indices){
             hashMap[postorder[items]] = items
         }
+
         return build(preorder,0,postorder.size-1,postorder,0,postorder.size-1)
     }
     private fun build(preorder: IntArray,preStart:Int,preEnd:Int,postorder:IntArray,postStart:Int,postEnd:Int):TreeNode?{
