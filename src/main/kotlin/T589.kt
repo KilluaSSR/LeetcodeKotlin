@@ -1,4 +1,7 @@
 package old01
+
+import Node
+
 // Iterate
 class SolutionT589Iter {
     fun preorder(root: Node?): List<Int> {

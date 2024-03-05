@@ -1,5 +1,7 @@
 package old01
 
+import ListNode
+
 class SolutionT876 {
     fun middleNode(head: ListNode?): ListNode? {
         var p1 : ListNode? = head

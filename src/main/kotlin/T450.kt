@@ -1,4 +1,7 @@
 package old01
+
+import TreeNode
+
 class SolutionT450 {
     fun deleteNode(root: TreeNode?, key: Int): TreeNode? {
         if(root == null) return null

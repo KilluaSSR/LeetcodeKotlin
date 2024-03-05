@@ -1,7 +1,7 @@
 package old01
 import kotlin.math.max
 
-class Solution {
+class SolutionT318 {
     fun maxProduct(words: Array<String>): Int {
         val map: MutableMap<Int, Int> = HashMap()
         val length = words.size

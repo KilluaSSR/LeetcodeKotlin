@@ -1,5 +1,7 @@
 package old01
 
+import ListNode
+
 class SolutionT141 {
     fun hasCycle(head: ListNode?): Boolean {
         var p1 = head

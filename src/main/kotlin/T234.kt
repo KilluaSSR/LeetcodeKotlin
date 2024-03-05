@@ -1,5 +1,7 @@
 package old01
 
+import ListNode
+
 class SolutionT234{
     var left:ListNode? = null
     fun isPalindrome(head: ListNode?): Boolean {

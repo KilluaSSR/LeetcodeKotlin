@@ -1,5 +1,7 @@
 package old01
 
+import Node
+
 class SolutionT590 {
     var list = ArrayList<Int>()
     fun postorder(root: Node?): List<Int> {

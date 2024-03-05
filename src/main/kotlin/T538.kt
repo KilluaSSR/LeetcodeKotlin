@@ -1,6 +1,8 @@
 package old01
 
-class Solution {
+import TreeNode
+
+class SolutionT538 {
     var sum = 0
     fun convertBST(root: TreeNode?): TreeNode? {
         build(root)
@@ -10,7 +12,7 @@ class Solution {
     fun build(root: TreeNode?){
         if(root == null)return
         build(root.right)
-        sum+=root.`val`
+        root.`val` = root.`val`!! + root.`val`!!
         root.`val` = sum
         build(root.left)
 

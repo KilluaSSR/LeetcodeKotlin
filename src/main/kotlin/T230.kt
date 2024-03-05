@@ -1,5 +1,7 @@
 package old01
 
+import TreeNode
+
 class SolutionT230 {
     var m = 0
     var ans = -1
@@ -12,7 +14,7 @@ class SolutionT230 {
         calc(root?.left,k)
         m++
         if(m==k){
-            ans = root.`val`
+            ans = root.`val`!!
         }
         calc(root?.right,k)
     }

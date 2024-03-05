@@ -1,5 +1,7 @@
 package old01
 
+import TreeNode
+
 class SolutionT222 {
     fun countNodes(root: TreeNode?): Int {
         var left = root

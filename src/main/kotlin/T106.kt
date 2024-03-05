@@ -1,5 +1,7 @@
 package old01
 
+import TreeNode
+
 class SolutionT106 {
     private val hashMap : HashMap<Int,Int> = HashMap()
     fun buildTree(inorder: IntArray, postorder: IntArray): TreeNode? {
