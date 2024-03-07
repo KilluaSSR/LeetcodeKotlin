@@ -2,7 +2,7 @@ import java.util.*
 data class State(var ID:Int,var distFromStart:Int = Int.MAX_VALUE)
 class Dijkstra {
 
-    fun dijkstra(start:Int,graph:Array<List<IntArray>>):Array<Int>{
+    fun dijkstra(start:Int,graph:Array<MutableList<IntArray>>):Array<Int>{
         val size = graph.size
         val distTo = Array<Int>(size){Int.MAX_VALUE}
         val pq = PriorityQueue{a:State,b:State->a.distFromStart-b.distFromStart}
