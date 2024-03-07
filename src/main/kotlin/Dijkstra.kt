@@ -1,12 +1,13 @@
 import java.util.*
-class State(var ID:Int,var distFromStart:Int = Int.MAX_VALUE)
+data class State(var ID:Int,var distFromStart:Int = Int.MAX_VALUE)
 class Dijkstra {
+
     fun dijkstra(start:Int,graph:Array<List<IntArray>>):Array<Int>{
         val size = graph.size
         val distTo = Array<Int>(size){Int.MAX_VALUE}
         val pq = PriorityQueue{a:State,b:State->a.distFromStart-b.distFromStart}
         pq.offer(State(start,0))
-        distTo[0]=0
+        distTo[start]=0
         while (pq.isNotEmpty()){
             val currentState = pq.poll()
             val currentID = currentState.ID
@@ -24,8 +25,6 @@ class Dijkstra {
         }
         return distTo
     }
-
-
 }
 
 
