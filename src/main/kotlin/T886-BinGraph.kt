@@ -1,5 +1,3 @@
-import java.awt.Color
-
 class SolutionT886 {
     private var ok = true
     private lateinit var color: Array<Boolean>
