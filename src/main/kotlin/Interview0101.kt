@@ -12,6 +12,3 @@ class Interview0101{
     }
 }
 
-fun main() {
-    println(Interview0101().isUnique("string"))
-}
