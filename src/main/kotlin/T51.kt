@@ -1,4 +1,3 @@
-import kotlin.math.min
 
 fun solveNQueens(n: Int): List<List<String>> {
     val res : MutableList<List<String>> = ArrayList()
@@ -18,7 +17,7 @@ fun backtrack(board: MutableList<String>,res:MutableList<List<String>>, row: Int
         res.add(ArrayList(board))
         return
     }
-    val n = board[row].length
+    val n = board.size
     for(i in 0 until n){
         if(!isValid(board,row,i)){
             continue
@@ -32,14 +31,35 @@ fun backtrack(board: MutableList<String>,res:MutableList<List<String>>, row: Int
 fun isValid(board: List<String>, row: Int, col: Int): Boolean {
     val n = board.size
 
-    // 检查列是否有皇后互相冲突
-    if ((0 until n).any { board[it][col] == 'Q' }) return false
+    /* 检查列是否有皇后互相冲突 */
+    for (i in 0 until n) {
+        if (board[i][col] == 'Q') {
+            return false
+        }
+    }
 
-    // 检查右上方是否有皇后互相冲突
-    if ((0 until min(row, n - col)).any { board[row - it - 1][col + it + 1] == 'Q' }) return false
-
-    // 检查左上方是否有皇后互相冲突
-    if ((0 until min(row, col + 1)).any { board[row - it - 1][col - it - 1] == 'Q' }) return false
+    /* 检查右上方是否有皇后互相冲突 */
+    run {
+        var i = row - 1
+        var j = col + 1
+        while (i >= 0 && j < n) {
+            if (board[i][j] == 'Q') {
+                return false
+            }
+            i--
+            j++
+        }
+    }
+    /* 检查左上方是否有皇后互相冲突 */
+    var i = row - 1
+    var j = col - 1
+    while (i >= 0 && j >= 0) {
+        if (board[i][j] == 'Q') {
+            return false
+        }
+        i--
+        j--
+    }
 
     return true
 }
