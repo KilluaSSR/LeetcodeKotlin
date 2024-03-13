@@ -3,30 +3,27 @@ import kotlin.math.max
 
 class SolutionT318 {
     fun maxProduct(words: Array<String>): Int {
-        val map: MutableMap<Int, Int> = HashMap()
-        val length = words.size
-        for (i in 0 until length) {
-            var mask = 0
-            val word = words[i]
-            val wordLength = word.length
-            for (j in 0 until wordLength) {
-                mask = mask or (1 shl (word[j].code - 'a'.code))
+        val check = Array<Int>(words.size){0}
+        for (wordIndices in words.indices){
+            for(character in words[wordIndices]){
+                val x = character-'a'
+                check[wordIndices] = check[wordIndices] or (1 shl x)
             }
-            if (wordLength > map.getOrDefault(mask, 0)) {
-                map[mask] = wordLength
+
+        }
+        val n = words.size
+        var ans = -1
+        for (wordIndices in 0 until n){
+            for (nextIndices in wordIndices+1 until n)
+            if(check[wordIndices]and check[nextIndices]==0){
+                ans = (words[wordIndices].length * words[nextIndices].length).coerceAtLeast(ans)
             }
         }
-        var maxProd = 0
-        val maskSet: Set<Int> = map.keys
-        for (mask1 in maskSet) {
-            val wordLength1 = map[mask1]!!
-            for (mask2 in maskSet) {
-                if ((mask1 and mask2) == 0) {
-                    val wordLength2 = map[mask2]!!
-                    maxProd = max(maxProd.toDouble(), (wordLength1 * wordLength2).toDouble()).toInt()
-                }
-            }
-        }
-        return maxProd
+        return ans
     }
+
+}
+
+fun main() {
+    SolutionT318().maxProduct(arrayOf("abcw","cde"))
 }
