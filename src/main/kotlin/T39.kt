@@ -1,21 +1,21 @@
 fun combinationSum(candidates: IntArray, target: Int): List<List<Int>> {
-    val ans : HashSet<List<Int>> = HashSet()
+    val ans : MutableList<List<Int>> = ArrayList()
     val board : MutableList<Int> = ArrayList()
-    backtrackt39(ans,board,target,candidates)
-    return ans.toMutableList()
+    backtrackt39(ans,board,target,candidates,0)
+    return ans
 }
 
-fun backtrackt39(ans: HashSet<List<Int>>, board: MutableList<Int>,target: Int,candidates: IntArray) {
-    if(board.sum()>target){
+fun backtrackt39(ans: MutableList<List<Int>>, board: MutableList<Int>,target: Int,candidates: IntArray,index:Int) {
+    if(target==0){
+        ans.add(ArrayList(board))
         return
     }
-    if(board.sum()==target){
-        ans.add(ArrayList(board).sorted())
-    }
-    for (j in candidates.indices){
-        board.add(candidates[j])
-        backtrackt39(ans, board, target, candidates)
-        board.removeLast()
+    if(target>0){
+        for(i in index until candidates.size){
+            board.add(candidates[i])
+            backtrackt39(ans, board, target-candidates[i], candidates, i)
+            board.removeLast()
+        }
     }
 }
 fun main() {
