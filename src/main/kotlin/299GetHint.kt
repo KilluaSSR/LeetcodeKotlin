@@ -1,5 +1,3 @@
-import kotlin.math.min
-
 fun getHint(secret: String, guess: String): String {
     var bulls = 0
     var cows = 0

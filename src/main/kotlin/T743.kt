@@ -20,9 +20,9 @@ class SolutionT743 {
     private fun dj(start:Int, graph: Array<MutableList<IntArray>>):Array<Int>{
         val size = graph.size
         val distTo = Array(size){Int.MAX_VALUE}
-        val priorityQueue = PriorityQueue{a:State,b:State->a.distFromStart-b.distFromStart}
+        val priorityQueue = PriorityQueue{a:StateX,b:StateX->a.distFromStart-b.distFromStart}
         distTo[start]=0
-        priorityQueue.offer(State(start,0))
+        priorityQueue.offer(StateX(start,0))
         while (priorityQueue.isNotEmpty()){
             val current = priorityQueue.poll()
             val currID = current.ID
@@ -33,7 +33,7 @@ class SolutionT743 {
                 val nextDis = distTo[currID]+neighbors[1]
                 if(distTo[next]>nextDis){
                     distTo[next] = nextDis
-                    priorityQueue.offer(State(next,distTo[next]))
+                    priorityQueue.offer(StateX(next,distTo[next]))
                 }
             }
         }

@@ -11,7 +11,6 @@ fun main(args: Array<String>) {
     var currentNode = head
     try {
         while(currentNode != null){
-            // Code inside the while loop
             println(currentNode.value)
             currentNode = currentNode.next!!
         }
