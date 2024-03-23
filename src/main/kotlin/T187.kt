@@ -23,8 +23,6 @@ class SolutionT187 {
 
 
 
-}
 
-fun main() {
-    println(SolutionT187().findRepeatedDnaSequences("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"))
+
 }
